@@ -1,0 +1,36 @@
+# Template file for 'autokey'
+pkgname=autokey
+version=0.95.10
+revision=1
+short_desc="AutoKey, a desktop automation utility for Linux and X11"
+maintainer="toluschr<toluschr@protonmail.com>"
+hostmakedepends="python3 python3-setuptools python3-PyQt5-devel-tools"
+makedepends="python3"
+depends="python3-dbus python3-inotify python3-xlib wmctrl python3"
+license="GPL-3.0-only"
+homepage="https://github.com/autokey/autokey"
+distfiles="https://github.com/autokey/autokey/archive/v${version}.tar.gz"
+checksum=e622ca04b3340f1ca0999bf03f05c9071a9f8aa3bc91c26c45c35509d63ff23d
+archs=noarch
+
+do_install() {
+	python3.8 setup.py install --root="${DESTDIR}" --optimiz=1
+}
+
+autokey-gtk_package() {
+	short_desc+=" - gtk interface"
+	depends="${sourcepkg}>=${version}_${revision} python3-gobject zenity libappindicator libnotify gtk+3 glib gtksourceview"
+	pkg_install() {
+		cd "${DESTDIR}"
+		find * -iname '*gtk*' -prune | while read f; do vmove "${f}"; done
+	}
+}
+
+autokey-qt_package() {
+	short_desc+=" - qt interface"
+	depends="${sourcepkg}>=${version}_${revision} python3-PyQt5 python3-PyQt5-svg"
+	pkg_install() {
+		cd "${DESTDIR}"
+		find * -iname '*qt*' -prune | while read f; do vmove "${f}"; done
+	}
+}
