@@ -1,18 +1,24 @@
 # Template file for 'opendkim'
 pkgname=opendkim
-version=2.10.3
-revision=11
+_commit=266fcb90d331f7fc1b20a79fd443e46c316652ea
+version=20201208
+revision=1
+wrksrc="OpenDKIM-${_commit}"
 build_style=gnu-configure
 configure_args="--with-milter=${XBPS_CROSS_BASE}/usr"
-hostmakedepends="pkg-config"
+hostmakedepends="pkg-config automake libtool"
 makedepends="libbsd-devel libressl-devel libmilter-devel"
 short_desc="DKIM library"
 maintainer="John Regan <john@jrjrtech.com>"
 license="BSD-3-Clause, Sendmail"
-homepage="http://www.opendkim.org"
-distfiles="${SOURCEFORGE_SITE}/project/${pkgname}/${pkgname}-${version}.tar.gz"
-checksum=43a0ba57bf942095fe159d0748d8933c6b1dd1117caf0273fa9a0003215e681b
-python_version=2 #unverified
+homepage="https://github.com/trusteddomainproject/OpenDKIM"
+distfiles="${homepage}/archive/${_commit}.zip"
+checksum=112082a2637db1309caee36cad0bdd123626acbb8c64875ff53cde6800f64b7e
+python_version=3 #unverified
+
+pre_configure() {
+	autoreconf -fi
+}
 
 post_install() {
 	vlicense LICENSE
