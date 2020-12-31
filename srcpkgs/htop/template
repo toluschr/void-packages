@@ -1,10 +1,10 @@
 # Template file for 'htop'
 pkgname=htop
-version=3.0.1
+version=3.0.4
 revision=1
 build_style=gnu-configure
 configure_args="--enable-unicode --enable-cgroup --enable-taskstats"
-hostmakedepends="python automake"
+hostmakedepends="automake"
 makedepends="ncurses-devel"
 short_desc="Interactive process viewer"
 maintainer="Frank Steinborn <steinex@nognu.de>"
@@ -12,7 +12,7 @@ license="GPL-2.0-only"
 homepage="https://htop.dev/"
 changelog="https://github.com/htop-dev/htop/blob/master/ChangeLog"
 distfiles="https://github.com/htop-dev/htop/archive/${version}.tar.gz"
-checksum=8465164bc085f5f1813e1d3f6c4b9b56bf4c95cc12226a5367e65794949b01ca
+checksum=d8a0536ce95e3d59f8e292e73ee037033a74a8cc118fd10d22048bd4aeb61324
 
 CFLAGS="-fcommon"
 

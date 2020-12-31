@@ -1,6 +1,6 @@
 # Template file for 'knewstuff'
 pkgname=knewstuff
-version=5.74.0
+version=5.77.0
 revision=1
 build_style=cmake
 configure_args="-DBUILD_TESTING=OFF"
@@ -12,7 +12,7 @@ maintainer="John <me@johnnynator.dev>"
 license="LGPL-2.1-or-later"
 homepage="https://invent.kde.org/frameworks/knewstuff"
 distfiles="${KDE_SITE}/frameworks/${version%.*}/${pkgname}-${version}.tar.xz"
-checksum=638ba6cee3091a94a0ef60977b6e22c7b58267ea6fd1bc17d3e7ac47bd9a3d27
+checksum=d031fe85c8870d1fd99d7a0252f06169d078be803bd6a70338403b624c7b70bc
 
 knewstuff-devel_package() {
 	short_desc+=" - development"

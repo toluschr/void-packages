@@ -1,9 +1,8 @@
 # Template file for 'sbcl'
 pkgname=sbcl
-version=2.0.8
+version=2.1.0
 revision=1
 archs="i686 x86_64* armv7l aarch64"
-
 hostmakedepends="iana-etc"
 makedepends="zlib-devel"
 conf_files="/etc/sbclrc"
@@ -13,7 +12,7 @@ license="custom:BSD+public_domain"
 homepage="http://www.sbcl.org/"
 changelog="http://www.sbcl.org/news.html"
 distfiles="${SOURCEFORGE_SITE}/${pkgname}/${pkgname}-${version}-source.tar.bz2"
-checksum=208d46f7b94d256d036f0efc9734e6b34a85c51bb03c3eb8bf39b7a3efe699f7
+checksum=05ee56bd66f9ce2f4fff3716766eb53aef2a74be3bbe862a31d83a60bea8224c
 nocross=yes
 nopie=yes
 
@@ -21,7 +20,7 @@ _bootstrap_lisp="bash ../sbcl-*-linux/run-sbcl.sh --no-sysinit --no-userinit --d
 case "$XBPS_TARGET_MACHINE" in
 x86_64)
 	distfiles+=" ${SOURCEFORGE_SITE}/${pkgname}/${pkgname}-${version}-x86-64-linux-binary.tar.bz2"
-	checksum+=" c1dfdd9421c849a4aa992b26bc31388a368177bdd3f8479350b3b7c4f1078e40"
+	checksum+=" 4ab9a3dd8989427f7a27762ab7e0488e21603bd45aeac593d1667ad672e7fa35"
 	;;
 i686)
 	distfiles+=" ${SOURCEFORGE_SITE}/${pkgname}/${pkgname}-1.4.3-x86-linux-binary.tar.bz2"
@@ -36,8 +35,8 @@ aarch64)
 	checksum+=" 494829f8e3ea7eb1c308b343cc390daf94a6215030a5f2b9ee0cded67511e918"
 	;;
 *-musl)
-	makedepends+=" ccl"
-	_bootstrap_lisp="ccl --batch --quiet --no-init"
+	makedepends+=" ecl"
+	_bootstrap_lisp="ecl"
 	;;
 esac
 
@@ -56,7 +55,6 @@ do_install() {
 }
 
 sbcl-source_package() {
-	archs="noarch"
 	depends="${sourcepkg}>=${version}_${revision}"
 	short_desc+=" -- source files"
 	pkg_install() {

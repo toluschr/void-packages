@@ -1,8 +1,7 @@
 # Template file for 'font-cozette'
 pkgname=font-cozette
-version=1.9.0
+version=1.9.3
 revision=1
-archs=noarch
 create_wrksrc=yes
 hostmakedepends="font-util"
 depends="font-util"
@@ -11,7 +10,7 @@ maintainer="Isaac Freund <ifreund@ifreund.xyz>"
 license="MIT"
 homepage="https://github.com/slavfox/Cozette"
 distfiles="https://github.com/slavfox/Cozette/releases/download/v.${version}/CozetteFonts.zip"
-checksum=b377f3fce6295eccbd2416ba7dec5a0caf684d4ca1637d72774af7f68e33c21a
+checksum=8104e960dca987c2836c79215c30141e3203d1cf5ac34e0863fa0549ba235f55
 font_dirs="/usr/share/fonts/misc /usr/share/fonts/TTF"
 
 do_install() {

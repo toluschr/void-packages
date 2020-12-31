@@ -1,9 +1,8 @@
 # Template file for 'kicad-i18n'
 pkgname=kicad-i18n
-version=5.1.6
+version=5.1.8
 revision=1
-_commit=5ad171ce5c8d90f4740517c2adecb310d8be51bd
-archs=noarch
+_commit=78adcd19e7ed53f4889d6db65a33dd8ec2d323e9
 wrksrc="${pkgname}-${version}-${_commit}"
 build_style=cmake
 hostmakedepends="gettext"
@@ -13,4 +12,4 @@ maintainer="Urs Schulz <voidpkgs@ursschulz.de>"
 license="CC-BY-SA-4.0"
 homepage="http://kicad-pcb.org"
 distfiles="https://gitlab.com/kicad/code/${pkgname}/-/archive/${version}/kicad-${version}.tar.gz>${pkgname}-${version}.tar.gz"
-checksum=c6f64f4c09286a6fb5834d72bcd6523aed7051d705fb110a52ba2af53f7a10fe
+checksum=807eeceaa5688ca800fe01464b466755e7b9e3243cb0a776e2ea5ea1f963967b
