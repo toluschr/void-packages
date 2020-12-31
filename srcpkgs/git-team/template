@@ -1,6 +1,6 @@
 # Template file for 'git-team'
 pkgname=git-team
-version=1.4.0
+version=1.5.2
 revision=1
 build_style=go
 go_import_path=github.com/hekmekk/git-team
@@ -10,7 +10,7 @@ maintainer="Frank Steinborn <steinex@nognu.de>"
 license="MIT"
 homepage="https://github.com/hekmekk/git-team"
 distfiles="${homepage}/archive/v${version}.tar.gz"
-checksum=c14370bc180d1da0e04816c71ac1001d039791b801216f670ed5f089beffb3ec
+checksum=1ce94afe46fa105597436231f0768d0464519340d43b3f82095312c85b3e7d99
 
 pre_build() {
 	vsed -e 's,/usr/local/etc/git-team/hooks,/usr/libexec/git-team/hooks,g' -i src/command/enable/commitsettings/datasource/static_value_data_source_test.go

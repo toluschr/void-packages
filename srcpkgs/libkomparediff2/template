@@ -1,6 +1,6 @@
 # Template file for 'libkomparediff2'
 pkgname=libkomparediff2
-version=20.08.1
+version=20.12.0
 revision=1
 build_style=cmake
 hostmakedepends="extra-cmake-modules gettext kcoreaddons qt5-host-tools qt5-qmake"
@@ -10,7 +10,7 @@ maintainer="Piotr Wójcik <chocimier@tlen.pl>"
 license="GPL-2.0-or-later, LGPL-2.0-or-later"
 homepage="https://www.kde.org/"
 distfiles="${KDE_SITE}/release-service/${version}/src/libkomparediff2-${version}.tar.xz"
-checksum=9d109dfea1433602cdabc89ffa5f522147befc9b1d6d9760549aba7db5dbd399
+checksum=8b92b729d2d1c7998b22ffd6a7ae95f46954785d4855ce6cfa7a1fb401cf66ec
 
 libkomparediff2-devel_package() {
 	depends="${sourcepkg}>=${version}_${revision}"

@@ -1,6 +1,6 @@
 # Template file for 'linux5.4'
 pkgname=linux5.4
-version=5.4.64
+version=5.4.86
 revision=1
 wrksrc="linux-${version}"
 short_desc="Linux kernel and modules (${version%.*} series)"
@@ -8,7 +8,7 @@ maintainer="Helmut Pozimski <helmut@pozimski.eu>"
 license="GPL-2.0-only"
 homepage="https://www.kernel.org"
 distfiles="https://cdn.kernel.org/pub/linux/kernel/v5.x/linux-${version}.tar.xz"
-checksum=b9d3c2938466f388a70fd190fd6691baa8b757393b267e9f7b06c4730d85d5ef
+checksum=eb36b5fc6ef7b953acba0a3e62d872e0330c4d34b38d58f5714493a4fe3b0e8b
 python_version=3
 patch_args="-Np1"
 
@@ -38,6 +38,11 @@ mutable_files="
  /usr/lib/modules/${_kernver}/modules.alias
  /usr/lib/modules/${_kernver}/modules.alias.bin
  /usr/lib/modules/${_kernver}/modules.devname"
+
+# reproducible build
+export KBUILD_BUILD_TIMESTAMP=${SOURCE_DATE_EPOCH:-0}
+export KBUILD_BUILD_USER=voidlinux
+export KBUILD_BUILD_HOST=voidlinux
 
 do_configure() {
 	# 5.4 misses Documentation/DocBook. We ship the directory from 4.12 here.
